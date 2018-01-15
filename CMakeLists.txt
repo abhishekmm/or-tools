@@ -61,7 +61,7 @@ include(python)
 include(java)
 include(csharp)
 
-if(ENABLE_TESTING)
+if(BUILD_TESTING)
 	add_subdirectory(examples/cpp)
 	add_subdirectory(examples/data)
 	add_subdirectory(examples/python)
