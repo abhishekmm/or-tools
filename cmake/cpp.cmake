@@ -9,17 +9,31 @@ message(STATUS "ortools version: ${PROJECT_VERSION}")
 
 # config options
 if (MSVC)
-	# /wd4005  macro-redefinition
-	# /wd4068  unknown pragma
-	# /wd4244  conversion from 'type1' to 'type2'
-	# /wd4267  conversion from 'size_t' to 'type2'
-	# /wd4800  force value to bool 'true' or 'false' (performance warning)
-	add_compile_options(/W3 /WX /wd4005 /wd4068 /wd4244 /wd4267 /wd4800)
-	add_definitions(/DNOMINMAX /DWIN32_LEAN_AND_MEAN=1 /D_CRT_SECURE_NO_WARNINGS)
-endif()
-
-if(MSVC)
-	add_definitions(/bigobj)
+	  # Build with multiple processes
+  add_definitions(/MP)
+  # MSVC warning suppressions
+  add_definitions(
+		/wd4005  # 'macro-redefinition'
+		/wd4018 # 'expression' : signed/unsigned mismatch
+		/wd4068  # 'unknown pragma'
+		/wd4244  # conversion from 'type1' to 'type2'
+    /wd4065 # switch statement contains 'default' but no 'case' labels
+    /wd4146 # unary minus operator applied to unsigned type, result still unsigned
+    /wd4244 # 'conversion' conversion from 'type1' to 'type2', possible loss of data
+    /wd4251 # 'identifier' : class 'type' needs to have dll-interface to be used by clients of class 'type2'
+    /wd4267 # 'var' : conversion from 'size_t' to 'type', possible loss of data
+    /wd4305 # 'identifier' : truncation from 'type1' to 'type2'
+    /wd4307 # 'operator' : integral constant overflow
+    /wd4309 # 'conversion' : truncation of constant value
+    /wd4334 # 'operator' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+    /wd4355 # 'this' : used in base member initializer list
+    /wd4506 # no definition for inline function 'function'
+    /wd4800 # 'type' : forcing value to bool 'true' or 'false' (performance warning)
+    /wd4996 # The compiler encountered a deprecated declaration.
+  )
+  # Allow big object
+  add_definitions(/bigobj)
+	add_definitions(/DNOMINMAX /DWIN32_LEAN_AND_MEAN=1 /D_CRT_SECURE_NO_WARNINGS /D_CRT_SECURE_NO_DEPRECATE)
 else()
 	add_definitions(-fwrapv)
 endif()
