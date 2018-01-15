@@ -72,7 +72,48 @@ foreach(EXECUTABLE
 		weighted_tardiness_sat)
 	add_executable(${EXECUTABLE} ${EXECUTABLE}.cc)
 	target_link_libraries(${EXECUTABLE} ${PROJECT_NAME})
-	add_test(NAME ${EXECUTABLE} COMMAND ${EXECUTABLE})
 	install(TARGETS ${EXECUTABLE}
 		RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+endforeach()
+
+
+foreach(TEST
+		costas_array
+		cryptarithm
+		cvrp_disjoint_tw
+		cvrptw
+		#cvrptw_with_breaks # Too long
+		#cvrptw_with_refueling # Too long
+		cvrptw_with_resources
+		cvrptw_with_stop_times_and_resources
+		#dimacs_assignment
+		#dobble_ls # Too long
+		flow_api
+		#frequency_assignment_problem
+		golomb
+		integer_programming
+		#jobshop
+		#jobshop_earlytardy
+		#jobshop_ls
+		#jobshop_sat
+		linear_assignment_api
+		linear_programming
+		linear_solver_protocol_buffers
+		ls_api
+		magic_square
+		#model_util
+		mps_driver
+		#multidim_knapsack
+		#network_routing
+		nqueens
+		#pdptw
+		#rcpsp_sat
+		#shift_minimization_sat
+		#solve
+		#sports_scheduling # Too long
+		#strawberry_fields_with_column_generation # Too long
+		tsp
+		#weighted_tardiness_sat
+		)
+	add_test(NAME ${TEST} COMMAND ${TEST})
 endforeach()
