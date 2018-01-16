@@ -115,5 +115,5 @@ foreach(TEST
 		tsp
 		#weighted_tardiness_sat
 		)
-	add_test(NAME ${TEST} COMMAND ${TEST})
+	add_test(NAME cc_${TEST} COMMAND ${TEST})
 endforeach()
