@@ -50,7 +50,11 @@ find_package(glog REQUIRED)
 find_package(Cbc REQUIRED)
 
 # Main Target
-add_library(${PROJECT_NAME} SHARED "")
+if(BUILD_SHARED_LIBS)
+	add_library(${PROJECT_NAME} SHARED "")
+else()
+	add_library(${PROJECT_NAME} STATIC "")
+endif()
 if(NOT APPLE)
 	set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 else()
