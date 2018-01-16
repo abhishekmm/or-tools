@@ -167,8 +167,4 @@ if(BUILD_TESTING)
 		WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
     # run the tests within the virtualenv
 		add_test(pytest_venv ${VENV_BIN_DIR}/python ${VENV_DIR}/test.py)
-
-	# Testing using CMAKE_BINARY_DIR
-	add_test(pytest	${PYTHON_EXECUTABLE} ${VENV_DIR}/test.py)
-	set_tests_properties(pytest PROPERTIES ENVIRONMENT "PYTHONPATH=${CMAKE_BINARY_DIR}")
 endif()
