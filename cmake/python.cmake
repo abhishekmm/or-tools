@@ -16,10 +16,11 @@ file(GLOB_RECURSE proto_py_files RELATIVE ${PROJECT_SOURCE_DIR}
 	"ortools/constraint_solver/*.proto"
 	"ortools/linear_solver/*.proto"
 	"ortools/sat/*.proto"
+	"ortools/util/*.proto"
 	)
 list(REMOVE_ITEM proto_py_files "ortools/constraint_solver/demon_profiler.proto")
 foreach(PROTO_FILE ${proto_py_files})
-	#message(STATUS "protoc: ${PROTO_FILE}")
+	#message(STATUS "protoc proto(py): ${PROTO_FILE}")
 	get_filename_component(PROTO_DIR ${PROTO_FILE} DIRECTORY)
 	get_filename_component(PROTO_NAME ${PROTO_FILE} NAME_WE)
 	set(PROTO_PY ${PROJECT_BINARY_DIR}/${PROTO_DIR}/${PROTO_NAME}_pb2.py)
@@ -60,6 +61,7 @@ foreach(SUBPROJECT constraint_solver linear_solver sat graph algorithms data)
 endforeach()
 
 configure_file(${PROJECT_SOURCE_DIR}/ortools/__init__.py ${PROJECT_BINARY_DIR}/ortools/ COPYONLY)
+configure_file(${PROJECT_SOURCE_DIR}/ortools/__init__.py ${PROJECT_BINARY_DIR}/ortools/util COPYONLY)
 configure_file(${PROJECT_SOURCE_DIR}/ortools/__init__.py ${PROJECT_BINARY_DIR}/ortools/constraint_solver/ COPYONLY)
 configure_file(${PROJECT_SOURCE_DIR}/ortools/__init__.py ${PROJECT_BINARY_DIR}/ortools/linear_solver/ COPYONLY)
 configure_file(${PROJECT_SOURCE_DIR}/ortools/__init__.py ${PROJECT_BINARY_DIR}/ortools/sat/ COPYONLY)
