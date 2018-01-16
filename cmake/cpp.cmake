@@ -78,6 +78,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	protobuf::libprotobuf gflags glog
 	Cbc::CbcSolver Cbc::OsiCbc Clp::ClpSolver Clp::OsiClp
 	Threads::Threads)
+if(WIN32)
+	target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32)
+endif()
 target_compile_definitions(${PROJECT_NAME}
 	PUBLIC	USE_BOP USE_GLOP USE_CBC USE_CLP)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
