@@ -84,7 +84,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	Cbc::CbcSolver Cbc::OsiCbc Clp::ClpSolver Clp::OsiClp
 	Threads::Threads)
 if(WIN32)
-	target_link_libraries(${PROJECT_NAME} PRIVATE ws2_32)
+	target_link_libraries(${PROJECT_NAME} PRIVATE psapi ws2_32)
 endif()
 target_compile_definitions(${PROJECT_NAME}
 	PUBLIC	USE_BOP USE_GLOP USE_CBC USE_CLP)
