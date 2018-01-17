@@ -17,6 +17,7 @@ if (MSVC)
 		/wd4018 # 'expression' : signed/unsigned mismatch
 		/wd4065 # switch statement contains 'default' but no 'case' labels
 		/wd4068 # 'unknown pragma'
+		/wd4101 # 'identifier' : unreferenced local variable
 		/wd4146 # unary minus operator applied to unsigned type, result still unsigned
 		/wd4200 # nonstandard extension used : zero-sized array in struct/union
 		/wd4244 # 'conversion' conversion from 'type1' to 'type2', possible loss of data
