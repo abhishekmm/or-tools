@@ -1,4 +1,4 @@
-if (NOT BUILD_CXX)
+if(NOT BUILD_CXX)
 	return()
 endif()
 
@@ -8,7 +8,7 @@ project(ortools LANGUAGES CXX VERSION ${VERSION})
 message(STATUS "ortools version: ${PROJECT_VERSION}")
 
 # config options
-if (MSVC)
+if(MSVC)
 	# Build with multiple processes
 	add_definitions(/MP)
 	# MSVC warning suppressions

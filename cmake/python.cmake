@@ -1,4 +1,4 @@
-if (NOT BUILD_PYTHON)
+if(NOT BUILD_PYTHON)
 	return()
 endif()
 
@@ -152,7 +152,7 @@ if(BUILD_TESTING)
 	# Testing using a vitual environment
 	set(VENV_EXECUTABLE ${PYTHON_EXECUTABLE} -m virtualenv)
 	set(VENV_DIR ${CMAKE_BINARY_DIR}/venv)
-	if (WIN32)
+	if(WIN32)
 		set(VENV_BIN_DIR "${VENV_DIR}\\Scripts")
 	else()
 		set(VENV_BIN_DIR ${VENV_DIR}/bin)
