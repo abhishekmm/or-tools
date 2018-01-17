@@ -11,13 +11,20 @@ else()
 	set(CMAKE_INSTALL_RPATH "$ORIGIN/../../:$ORIGIN/../lib:$ORIGIN/")
 endif()
 
-add_library(${PROJECT_NAME} SHARED
+set(_SRCS
 	cvrptw_lib.cc
 	fap_model_printer.cc
 	fap_parser.cc
 	fap_utilities.cc
 	parse_dimacs_assignment.cc
 	)
+
+if(MSVC)
+	add_library(${PROJECT_NAME} STATIC ${_SRCS})
+else()
+	add_library(${PROJECT_NAME} SHARED ${_SRCS})
+endif()
+
 get_filename_component(PARENT_SOURCE_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
 get_filename_component(PARENT_SOURCE_DIR ${PARENT_SOURCE_DIR} DIRECTORY)
 target_include_directories(${PROJECT_NAME} PUBLIC ${PARENT_SOURCE_DIR})
