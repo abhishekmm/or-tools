@@ -28,7 +28,9 @@ if(MSVC)
 		/wd4309 # 'conversion' : truncation of constant value
 		/wd4334 # 'operator' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
 		/wd4355 # 'this' : used in base member initializer list
+		/wd4477 # 'fwprintf' : format string '%s' requires an argument of type 'wchar_t *'
 		/wd4506 # no definition for inline function 'function'
+		/wd4715 # function' : not all control paths return a value
 		/wd4800 # 'type' : forcing value to bool 'true' or 'false' (performance warning)
 		/wd4996 # The compiler encountered a deprecated declaration.
 		)
