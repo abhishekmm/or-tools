@@ -35,6 +35,7 @@ target_compile_definitions(${NAME} PRIVATE
 	)
 # CMakeError: Object library may not link to anything.
 #target_link_libraries(${NAME} PRIVATE
+#  ZLIB::ZLIB
 #  protobuf::libprotobuf
 #  gflags
 #  glog::glog
